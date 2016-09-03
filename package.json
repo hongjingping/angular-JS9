@@ -1,0 +1,26 @@
+{
+  "name": "angular-boilerplate",
+  "version": "1.0.0",
+  "description": "iceStone angular boilerplate",
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "./node_modules/.bin/hs -a localhost -p 9000 -o"
+  },
+  "keywords": [
+    "iceStone",
+    "Micua",
+    "Angular",
+    "Boilerplate"
+  ],
+  "author": "iceStone <ice@wedn.net> (http://wedn.net/)",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  }
+}

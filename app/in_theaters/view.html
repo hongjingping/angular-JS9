@@ -1,0 +1,41 @@
+<h1 class="page-header">正在热映</h1>
+<!--message有值的时候才显示-->
+<h2 ng-if="message">{{message}}</h2>
+<!--bootstrap中的组件-->
+<div class="list-group">
+    <a ng-repeat="item in subjects" href="#" class="list-group-item ">
+        <!--评分的bootstrap中徽章-->
+        <span class="badge">{{item.rating.average}}</span>
+        <!--bootstrap中的组件-->
+        <div class="media">
+
+                <img style="float: left;display: inline-block;" ng-src="{{item.images.small}}" alt="item.title." height="128">
+
+            <div class="media-body" style="float: left;">
+                <h2 class="media-heading">{{item.title}}</h2>
+                <!--取一个导演-->
+                <!--<p>导演: <span>{{item.directors[0].name}}</span></p> -->
+                <p>导演:
+                    <span  ng-repeat ='d in item.directors'>
+                    <!--{{d.name+($last?"":"、")}}-->
+                        <!--最后一个没有、可以使用下面的方式单独写，
+                            <span ng-if="!$last">、</span>
+                        也可以直接写在上面，采用三元表达式
+                        还有一种是在后面用一个表达式，就不用进行拼接-->
+                        {{d.name}}{{$last?"":"、"}}
+                    </span>
+                </p>
+                <p>类型: <span>{{item.genres.join("、")}}</span></p>
+            </div>
+        </div>
+    </a>
+</div>
+<p>总共:{{totalCount}}条记录，共计{{totalPages}}页</p>
+<!--动画加载http://www.cnblogs.com/lhb25/archive/2013/12/28/loading-spinners-animated-with-css3.html-->
+<div class="mask" ng-show="loading">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
